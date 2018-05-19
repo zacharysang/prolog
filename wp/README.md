@@ -7,9 +7,9 @@ For the purposes of this program, we will call a state a set of variables and th
 With this in mind, a weakest precondition simply becomes the answer to the question: `What variable values be present for this expression to give me this set of variable values?`
 
 ## Why weakest precondition?
-The goal of this effort is to leverage this concept to enable people to ask questions about software like:
+The goal of this effort is to leverage this concept to enable people to eventually ask questions about software like:
 * what state is required for this variable to take a certain value (eg: for isAuthorized=TRUE)
-* what state is required for me to execute a function f? (imagine f is a sensitive operation like: `deleteData()`)
+* what state is required for me to execute a function f? (imagine f is a sensitive operation like: `getPasswd()`)
 * what state is required for me to access certain information?
 
 ## Why prolog?
@@ -18,10 +18,14 @@ I am not super familiar with the concept of weakest preconditions (I am hoping t
 but it feels like these features will be useful when searching for and proving certain properties about given software.
 
 ## The Vision
-The goal of this tool is to allow the user to select a given line of code and to ask: what variables values needed to eb assigned to get to this point?
+The goal of this tool is to allow the user to select a given line of code and to ask: what variables values needed to be assigned to get to this point?
 or: what variable values are needed for this statement to produce this state?
 
 ## The approach
 * Build a utility to parse code into a prolog knowledge base (this will be most of the work)
 * Define concepts in prolog such as literals, operators, statements, etc. that can be used as the terminology in queries
 * provide a means for people to access and use this tool with any codebase
+
+## What does this look like right now?
+lol. I am starting by limiting state to the current location in code. By doing this, I am hoping to answer the question:
+What state is required for me to reach this line in the program?
